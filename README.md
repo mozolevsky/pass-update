@@ -6,4 +6,4 @@ Draft version, tested for windows. <br>
 
 Usage: <br>
 yarn <br>
-node change <password>
+node change 'password'
