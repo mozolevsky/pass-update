@@ -1,0 +1,13 @@
+{
+  "name": "change-pass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "fast-xml-parser": "^3.16.0",
+    "glob": "^7.1.6",
+    "shelljs": "^0.8.3",
+    "traverse": "^0.6.6"
+  }
+}
