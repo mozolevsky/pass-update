@@ -5,5 +5,5 @@ And put new passwords in settings.xml and settings-security.xml <br>
 Draft version, tested for windows. <br>
 
 Usage: <br>
-yarn
+yarn <br>
 node change <password>
