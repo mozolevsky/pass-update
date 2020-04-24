@@ -8,7 +8,6 @@ const colors = require('colors')
 
 const passwordArg = process.argv[2]
 
-
 // TODO: create a universal path
 glob('C:\\Users\\*\\.m2\\*.xml', (err, filesPaths) => {
     if (err) {
@@ -17,7 +16,7 @@ glob('C:\\Users\\*\\.m2\\*.xml', (err, filesPaths) => {
     }
     console.log('Looking for maven settings files: DONE'.green)
 
-    const {securityPass, pass} = encodeMvnPasses(passwordArg)
+    const {securityPass, pass} = encodeMvnPasses(`${passwordArg}`)
 
     const mavenSettings = getParsedMavenSettings(filesPaths)
 
@@ -27,7 +26,6 @@ glob('C:\\Users\\*\\.m2\\*.xml', (err, filesPaths) => {
     updateMvnPass(mavenSettings['settings.xml'], pass)
     console.log('Update settings.xml: DONE'.green)
 })
-
 
 const updateMvnPass = (settings, encodedPassword, customPassPropertyName) => {
     const js2XmlParser = new Js2XmlParser()
