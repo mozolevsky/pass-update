@@ -8,5 +8,6 @@ Draft version, tested for windows. <br>
 
 Usage: <br>
 yarn <br>
-node maven-pass [password] <br>
-node npm-pass [user] [password] <br>
+node cli --maven [password] <br>
+node cli --npm [password] <br>
+node cli --both [password] <br>
