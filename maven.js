@@ -63,6 +63,12 @@ const changeMavenPassword = password => {
             console.log(err)
             return
         }
+
+        if (filePath.length === 0) {
+            console.log('maven settings is not found'.red)
+            return 
+        }
+
         console.log('Looking for maven settings files: DONE'.green)
 
         const {securityPass, pass} = encodeMvnPasses(`${password}`)

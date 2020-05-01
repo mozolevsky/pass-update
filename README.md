@@ -1,5 +1,5 @@
 # npm | maven passwords update scripts
-Script for maven and .npmrc passwords update <br>
+Script for maven and .npmrc passwords update | currently for windows only <br>
 Encodes maven password in accordance with https://maven.apache.org/guides/mini/guide-encryption.html <br>
 and updates in settings.xml and settings-security.xml <br>
 Encoder npm _auth string as base64 user:password <br>
