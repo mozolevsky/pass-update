@@ -1,23 +1,31 @@
-const { program } = require('commander')
+#!/usr/bin/env node
+const inquirer = require('inquirer')
 const changeMavenPassword = require('./maven')
 const changeNpmPassword = require('./npm')
 
-program
-  .option('-m, --maven <password>', 'change maven password')
-  .option('-n, --npm <password>', 'change npm password')
-  .option('-b, --both <password>', 'change npm and maven passwords')
- 
-program.parse(process.argv);
-
-if (program.maven) {
-    changeMavenPassword(program.maven)
+const actions = {
+    npm: changeNpmPassword,
+    maven: changeMavenPassword,
+    both: pass => {
+        changeMavenPassword(pass)
+        changeNpmPassword(pass)
+    }
 }
 
-if (program.npm) {
-    changeNpmPassword(program.npm)
-}
+inquirer.prompt([
+    {
+        name: 'type',
+        message: 'What kind of password would you like to change?',
+        type: 'list',
+        choices: ['npm', 'maven', 'both']
+    },
+    {
+        name: 'password',
+        message: 'Please enter your password',
+        type: 'password',
+        mask: '*'
+    }
+]).then(({type, password}) => {actions[type](password)}).catch(err => console.log(err))
 
-if (program.both) {
-    changeMavenPassword(program.maven)
-    changeNpmPassword(program.npm)
-}
+
+

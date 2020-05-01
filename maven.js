@@ -64,7 +64,7 @@ const changeMavenPassword = password => {
             return
         }
 
-        if (filePath.length === 0) {
+        if (filesPaths.length === 0) {
             console.log('maven settings is not found'.red)
             return 
         }
