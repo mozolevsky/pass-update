@@ -5,12 +5,13 @@ const shell = require('shelljs')
 const traverse = require('traverse')
 const Js2XmlParser = require("fast-xml-parser").j2xParser
 const colors = require('colors')
+const beautify = require('xml-beautifier') 
 
 const updateMvnPass = (settings, encodedPassword, customPassPropertyName) => {
     const js2XmlParser = new Js2XmlParser()
     const passObj = updatePassInObj(settings.data, encodedPassword,  customPassPropertyName)
     const xmlContent = js2XmlParser.parse(passObj)
-    fs.writeFileSync(settings.path, xmlContent)
+    fs.writeFileSync(settings.path, beautify(xmlContent))
 }
 
 const getParsedMavenSettings = filesPaths => {
